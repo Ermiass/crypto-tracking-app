@@ -48,7 +48,7 @@ function Header() {
               variant="h6"
               className={classes.title}
             >
-              E-Crypt
+              E-Crypo
             </Typography>
             <Select
               variant="outlined"
