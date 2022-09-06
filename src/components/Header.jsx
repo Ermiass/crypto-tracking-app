@@ -1,9 +1,69 @@
 import React from 'react';
+import {
+  AppBar,
+  Container,
+  MenuItem,
+  Select,
+  Toolbar,
+  Typography
+} from '@material-ui/core';
+import {
+  createTheme,
+  makeStyles,
+  ThemeProvider
+} from '@material-ui/core/styles';
+import { useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const useStyles = makeStyles((theme) => ({
+  title: {
+    flex: 1,
+    color: 'gold',
+    fontFamily: 'Montserrat',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+  },
+}));
+
+const darkTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#fff',
+    },
+    type: 'dark',
+  },
+});
+
+function Header() {
+  const classes = useStyles();
+
+  const navigate = useNavigate();
+
   return (
-    <div>Header</div>
+    <ThemeProvider theme={darkTheme}>
+      <AppBar color="transparent" position="static">
+        <Container>
+          <Toolbar>
+            <Typography
+              onClick={() => navigate('/')}
+              variant="h6"
+              className={classes.title}
+            >
+              E-Crypt
+            </Typography>
+            <Select
+              variant="outlined"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+
+            >
+              <MenuItem value="USD">USD</MenuItem>
+              <MenuItem value="EURO">EURO</MenuItem>
+            </Select>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </ThemeProvider>
   );
-};
+}
 
 export default Header;
