@@ -7,9 +7,9 @@ const CryptoContext = ({ children }) => {
 
   useEffect(() => {
     if (currency === 'USD') setSymbol('$');
-    else if (currency === 'EURO') setSymbol('Є');
+    else if (currency === 'EUR') setSymbol('€');
   }, [currency]);
-  const pro = useMemo(() => ({ currency, setCurrency, symbol }), [currency]);
+  const pro = useMemo(() => ({ currency, setCurrency, symbol }), [currency, symbol]);
   return (
     <Crypto.Provider value={pro}>
       {children}

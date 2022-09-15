@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import CryptoContext from './CryptoContext';
+import ErrorBoundary from './ErrorBoundary';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root')
@@ -10,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <CryptoContext>
-      <App />
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
     </CryptoContext>
   </React.StrictMode>
 );

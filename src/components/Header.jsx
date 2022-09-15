@@ -34,7 +34,7 @@ const darkTheme = createTheme({
   },
 });
 
-function Header() {
+const Header = () => {
   const classes = useStyles();
   const { currency, setCurrency } = CryptoState();
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ function Header() {
               variant="h6"
               className={classes.title}
             >
-              E-Crypo
+              E-Crypto
             </Typography>
             <Select
               variant="outlined"
@@ -64,13 +64,13 @@ function Header() {
               onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value="USD">USD</MenuItem>
-              <MenuItem value="EURO">EURO</MenuItem>
+              <MenuItem value="EUR">EUR</MenuItem>
             </Select>
           </Toolbar>
         </Container>
       </AppBar>
     </ThemeProvider>
   );
-}
+};
 
 export default Header;
