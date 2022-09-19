@@ -28,7 +28,7 @@ const App = () => {
           <Route path="/coins/:id" element={<CoinPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </BrowserRouter>
 

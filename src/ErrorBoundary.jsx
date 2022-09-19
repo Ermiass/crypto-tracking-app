@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import Header from './components/Header';
+import Header from './components/Header';
 // import Footer from './components/Footer';
 
 class ErrorBoundary extends Component {
@@ -24,10 +24,9 @@ class ErrorBoundary extends Component {
     if (error) {
       return (
         <>
-          {/* <Header /> */}
+          <Header />
           <h1>An error has occurred in a child component:</h1>
           {error.message && <p>{error.message}</p>}
-          {/* <Footer /> */}
         </>
       );
     }
