@@ -19,18 +19,16 @@ const App = () => {
   const classes = useStyles();
   return (
 
-    <BrowserRouter>
-      <div className={classes.App}>
-        <GlobalStyle />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/coins/:id" element={<CoinPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        {/* <Footer /> */}
-      </div>
-    </BrowserRouter>
+    <div className={classes.App}>
+      <GlobalStyle />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/coins/:id" element={<CoinPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      {/* <Footer /> */}
+    </div>
 
   );
 };

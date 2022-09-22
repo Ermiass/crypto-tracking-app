@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Header from './components/Header';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class ErrorBoundary extends Component {
           <Header />
           <h1>An error has occurred in a child component:</h1>
           {error.message && <p>{error.message}</p>}
+          <Footer />
         </>
       );
     }
