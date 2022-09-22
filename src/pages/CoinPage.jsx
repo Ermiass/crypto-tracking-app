@@ -40,13 +40,20 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 0,
     textAlign: 'justify',
   },
-
 }));
 
 const CoinPage = () => {
   const { id } = useParams();
-  const [coin, setCoin] = useState();
+  const [coin, setCoin] = useState({});
   const { currency, symbol } = CryptoState();
+
+  const {
+    image,
+    name,
+    description,
+    market_cap_rank: marketCapRank,
+    market_data: marketData,
+  } = coin;
 
   const classes = useStyles();
 
@@ -57,24 +64,23 @@ const CoinPage = () => {
   useEffect(() => {
     fetchCoin();
   }, []);
-  console.log();
+  console.log(coin);
   if (!coin) return <LinearProgress style={{ backgroundColor: 'gold' }} />;
 
   return (
-
     <div className={classes.container}>
       <div className={classes.sidebar}>
         <img
-          src={coin?.image.large}
-          alt={coin?.name}
+          src={image?.large}
+          alt={name}
           height="200"
           style={{ marginBottom: 20 }}
         />
         <Typography variant="h3" className={classes.heading}>
-          {coin?.name}
+          {name}
         </Typography>
         <Typography variant="subtitle1" className={classes.description}>
-          {ReactHtmlParser(coin?.description.en.split('. ')[0])}.
+          {ReactHtmlParser(description?.en.split('. ')[0])}.
         </Typography>
         <div className={classes.marketData}>
           <span style={{ display: 'flex' }}>
@@ -88,7 +94,7 @@ const CoinPage = () => {
                 fontFamily: 'Montserrat',
               }}
             >
-              {numberWithCommas(coin?.market_cap_rank)}
+              {numberWithCommas(marketCapRank)}
             </Typography>
           </span>
 
@@ -105,7 +111,7 @@ const CoinPage = () => {
             >
               {symbol}{' '}
               {numberWithCommas(
-                coin?.market_data.current_price[currency.toLowerCase()]
+                marketData?.current_price[currency.toLowerCase()]
               )}
             </Typography>
           </span>
@@ -122,7 +128,7 @@ const CoinPage = () => {
             >
               {symbol}{' '}
               {numberWithCommas(
-                coin?.market_data.market_cap[currency.toLowerCase()]
+                marketData?.market_cap[currency.toLowerCase()]
                   .toString()
                   .slice(0, -6)
               )}

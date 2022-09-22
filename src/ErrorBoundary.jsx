@@ -25,9 +25,9 @@ class ErrorBoundary extends Component {
       return (
         <>
           <Header />
-          <Footer />
           <h1>An error has occurred in a child component:</h1>
           {error.message && <p>{error.message}</p>}
+          <Footer />
         </>
       );
     }
