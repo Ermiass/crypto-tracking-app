@@ -32,14 +32,14 @@ const CoinsTable = () => {
   const navigate = useNavigate();
   const classes = useStyles();
 
-  const getcoins = async () => {
+  const getCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
     setCoins(data);
     setLoading(false);
   };
   useEffect(() => {
-    getcoins();
+    getCoins();
   }, [currency]);
   console.log(coins);
   const darkTheme = createTheme({
