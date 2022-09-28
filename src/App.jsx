@@ -7,6 +7,7 @@ import Header from './components/Header';
 import NotFound from './pages/NotFound';
 import GlobalStyle from './utils/globalStyle';
 import Footer from './components/Footer';
+import Alert from './components/Alert';
 
 const useStyles = makeStyles(() => ({
   App: {
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       {/* <Footer /> */}
+      <Alert />
     </div>
 
   );
