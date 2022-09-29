@@ -137,7 +137,7 @@ const CoinPage = () => {
           </span>
         </div>
       </div>
-      <CoinsInfo />
+      {coin.id && <CoinsInfo coin={coin} />}
     </div>
   );
 };
