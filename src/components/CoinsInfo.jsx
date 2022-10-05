@@ -61,14 +61,9 @@ const CoinsInfo = ({ coin }) => {
   const fetchHistoricData = async () => {
     const { data } = await axios
       .get(HistoricalChart(coin.id, days, currency));
-      // .then((data) => {
     setflag(true);
     setHistoricData(data.prices);
-    console.log('xx', data.prices);
-    // });
   };
-  console.log('ermias1', coin);
-  console.log('ermiashhailu', historicData);
 
   useEffect(() => {
     fetchHistoricData();
@@ -113,7 +108,7 @@ const CoinsInfo = ({ coin }) => {
                   {
                     data: historicData.map((coin) => coin[1]),
                     label: `Price ( Past ${days} Days ) in ${currency}`,
-                    borderColor: '#EEBC1D',
+                    borderColor: '#1363DF',
                   },
                 ],
               }}

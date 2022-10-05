@@ -10,15 +10,11 @@ const useStyles = makeStyles({
     paddingRight: 20,
     fontFamily: 'Montserrat',
     cursor: 'pointer',
-    // backgroundColor: selected ? 'gold' : '',
-    // color: selected ? 'black' : '',
-    // fontWeight: selected ? 700 : 500,
     '&:hover': {
-      backgroundColor: 'gold',
+      backgroundColor: '#1363DF',
       color: 'black',
     },
     width: '22%',
-    //   margin: 5,
   },
 });
 

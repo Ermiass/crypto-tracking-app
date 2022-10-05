@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import GoogleButton from 'react-google-button';
 import { Button, Tab, Tabs, AppBar, Box } from '@material-ui/core';
-// import GoogleButton from 'react-google-button';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import Signup from './Signup';
 import Login from './Login';
@@ -115,7 +115,8 @@ export default function AuthModal() {
                 value={value}
                 onChange={handleChange}
                 variant="fullWidth"
-                style={{ borderRadius: 10 }}
+                style={{ borderRadius: 10,
+                  marginBottom: 25 }}
               >
                 <Tab label="Login" />
                 <Tab label="Sign Up" />
@@ -125,10 +126,10 @@ export default function AuthModal() {
             {value === 1 && <Signup handleClose={handleClose} />}
             <Box className={classes.google}>
               <span>OR</span>
-              {/* <GoogleButton
+              <GoogleButton
                 style={{ width: '100%', outline: 'none' }}
                 onClick={signInWithGoogle}
-              /> */}
+              />
             </Box>
           </div>
         </Fade>

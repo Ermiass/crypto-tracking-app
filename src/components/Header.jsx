@@ -15,6 +15,8 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { CryptoState } from '../CryptoContext';
 import AuthModal from './Authentication/AuthModal';
+import UserSidebar from './Authentication/UserSidebar';
+import News from './News';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -37,7 +39,7 @@ const darkTheme = createTheme({
 
 const Header = () => {
   const classes = useStyles();
-  const { currency, setCurrency } = CryptoState();
+  const { currency, setCurrency, user } = CryptoState();
   const navigate = useNavigate();
   console.log(currency);
   return (
@@ -51,6 +53,12 @@ const Header = () => {
               className={classes.title}
             >
               E-Crypto
+            </Typography>
+            <Typography
+              variant="h7"
+              className={classes.title}
+            >
+              <News />
             </Typography>
             <Select
               variant="outlined"
@@ -67,7 +75,7 @@ const Header = () => {
               <MenuItem value="USD">USD</MenuItem>
               <MenuItem value="EUR">EUR</MenuItem>
             </Select>
-            <AuthModal />
+            {user ? <UserSidebar /> : <AuthModal />}
           </Toolbar>
         </Container>
       </AppBar>

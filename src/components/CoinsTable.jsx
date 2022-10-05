@@ -19,6 +19,7 @@ const useStyles = makeStyles({
   pagination: {
     '& .MuiPaginationItem-root': {
       color: 'gold',
+      // marginBottom: 15,
     },
   },
 });
