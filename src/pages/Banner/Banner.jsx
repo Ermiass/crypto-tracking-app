@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
     backgroundImage: 'url(./ban.jpg)'
   },
   bannerContent: {
-    height: 400,
+    height: 300,
     display: 'flex',
     flexDirection: 'column',
     paddingTop: 25,
@@ -27,30 +27,23 @@ const Banner = () => {
   return (
     <div className={classes.banner}>
       <Container className={classes.bannerContent}>
+
+        <Carousel />
         <div className={classes.tagline}>
-          <Typography
-            variant="h2"
-            style={{
-              color: '  #F5F5F5',
-              fontWeight: 'bold',
-              marginBottom: 15,
-              fontFamily: 'Montserrat',
-            }}
-          >
-            E-Crypto
-          </Typography>
           <Typography
             variant="subtitle2"
             style={{
               color: 'darkgrey',
               textTransform: 'capitalize',
               fontFamily: 'Montserrat',
+              // marginBottom: 15,
             }}
           >
+            {/* E-Crypto */}
             Get all the Info regarding your favorite Crypto Currency
           </Typography>
+
         </div>
-        <Carousel />
       </Container>
     </div>
   );

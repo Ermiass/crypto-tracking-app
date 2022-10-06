@@ -44,11 +44,13 @@ const Login = ({ handleClose }) => {
 
   return (
     <Box
-      p={3}
+      // p={4}
       style={{
         display: 'flex',
         flexDirection: 'column',
         gap: '20px',
+        marginLeft: 20,
+        marginRight: 20,
       }}
     >
       <TextField
@@ -71,7 +73,8 @@ const Login = ({ handleClose }) => {
         variant="contained"
         size="large"
         onClick={handleSubmit}
-        style={{ backgroundColor: '#EEBC1D' }}
+        style={{ backgroundColor: '#EEBC1D',
+          marginBottom: 20 }}
       >
         Login
       </Button>
