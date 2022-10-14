@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Container, makeStyles, createTheme, TextField, Paper, Table, TableBody, TableHead, TableRow, TableCell, TableContainer, LinearProgress, ThemeProvider, Typography } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 import Pagination from '@material-ui/lab/Pagination';
-import { CoinList } from '../config/api';
 import { CryptoState } from '../CryptoContext';
 import { numberWithCommas } from '../pages/Banner/Carousel';
+
+type props = {
+  coin: string
+  name: string
+  symbol: string,
+}
+type row = {
+  row:string
+  price_change_percentage_24h: number,
+  name: string,
+  id: string,
+  symbol: string,
+  image: string,
+  current_price: number,
+  market_cap:  number,
+}
 
 const useStyles = makeStyles({
   row: {
@@ -45,7 +59,7 @@ const CoinsTable = () => {
   console.log(search);
   const handleSearch = () => {
     return coins.filter(
-      (coin) =>
+      (coin:props) =>
         coin.name.toLowerCase().includes(search) ||
         coin.symbol.toLowerCase().includes(search)
     );
@@ -55,7 +69,7 @@ const CoinsTable = () => {
       <Container style={{ textAlign: 'center' }}>
         <Typography
           variant="h4"
-          style={{ marigin: 18,
+          style={{ margin: 18,
             fontFamily: 'Montserrat' }}
         >
           Cryptocurrency Prices by Market Cap
@@ -81,7 +95,7 @@ const CoinsTable = () => {
                         fontFamily: 'Montserrat',
                       }}
                       key={head}
-                      align={head === 'Coin' ? '' : 'right'}
+                      align={head === 'Coin' ? 'inherit' : 'right'}
                     >
                       {head}
                     </TableCell>
@@ -92,7 +106,7 @@ const CoinsTable = () => {
               <TableBody>
                 {handleSearch()
                   .slice((page - 1) * 10, (page - 1) * 10 + 10)
-                  .map((row) => {
+                  .map((row:row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
                       <TableRow
@@ -137,7 +151,7 @@ const CoinsTable = () => {
                         <TableCell
                           align="right"
                           style={{
-                            color: profit > 0 ? 'rgb(14, 203, 129)' : 'red',
+                            color: profit ? 'rgb(14, 203, 129)' : 'red',
                             fontWeight: 500,
                           }}
                         >
@@ -159,7 +173,7 @@ const CoinsTable = () => {
           )}
         </TableContainer>
         <Pagination
-          count={(handleSearch().length / 10).toFixed(0)}
+          count={parseFloat((handleSearch().length / 10).toFixed(0))}
           style={{
             padding: 20,
             width: '100%',

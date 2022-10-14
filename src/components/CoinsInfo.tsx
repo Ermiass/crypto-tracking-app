@@ -21,6 +21,7 @@ import { HistoricalChart } from '../config/api';
 import { chartDays } from '../config/data';
 import { CryptoState } from '../CryptoContext';
 import Button from './Button';
+import { Rep } from '../utils/type'
 
 ChartJS.register(
   CategoryScale,
@@ -50,8 +51,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CoinsInfo = ({ coin }) => {
-  const [historicData, setHistoricData] = useState();
+
+const CoinsInfo = ({ coin}:Rep) => {
+  const [historicData, setHistoricData] = useState([]);
   const [days, setDays] = useState(1);
   const { currency } = CryptoState();
   const [flag, setflag] = useState(false);
@@ -60,7 +62,7 @@ const CoinsInfo = ({ coin }) => {
 
   const fetchHistoricData = async () => {
     const { data } = await axios
-      .get(HistoricalChart(coin.id, days, currency));
+      .get(HistoricalChart(coin?.id, days, currency));
     setflag(true);
     setHistoricData(data.prices);
   };
@@ -91,7 +93,7 @@ const CoinsInfo = ({ coin }) => {
           <>
             <Line
               data={{
-                labels: historicData.map((coin) => {
+                labels: historicData.map((coin: string[]) => {
                   const date = new Date(coin[0]);
                   const time =
                     date.getHours() > 12
@@ -135,7 +137,7 @@ const CoinsInfo = ({ coin }) => {
                     setDays(day.value);
                     setflag(false);
                   }}
-                  selected={day.value === days}
+                  // selected={day.value === days}
                 >
                   {day.label}
                 </Button>

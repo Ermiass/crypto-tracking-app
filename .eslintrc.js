@@ -8,8 +8,14 @@ module.exports = {
     'airbnb',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:import/typescript'
+    'plugin:import/typescript',
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+  
   ],
+  "parser": "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -17,7 +23,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', "@typescript-eslint",
+  "prettier",
+  "eslint-plugin-prettier"],
   rules: {
     'import/extensions': [
       'error',
@@ -61,6 +69,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+  
     'react/no-access-state-in-setstate': 'off',
     'react/jsx-no-useless-fragment': 'off',
     'react/jsx-one-expression-per-line': [0],

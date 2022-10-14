@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { SetStateAction, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -38,7 +38,7 @@ export default function AuthModal() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
-  const { setAlert } = CryptoState();
+  const { setAlert} = CryptoState();
 
   const handleOpen = () => {
     setOpen(true);
@@ -50,7 +50,7 @@ export default function AuthModal() {
 
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (e:any, newValue: SetStateAction<number>) => {
     setValue(newValue);
   };
 

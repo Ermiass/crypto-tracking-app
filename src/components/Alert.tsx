@@ -1,18 +1,24 @@
-import React from 'react';
-import { Snackbar } from '@material-ui/core';
+import React, { SyntheticEvent } from 'react';
+import { Snackbar, SnackbarCloseReason} from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import { CryptoState } from '../CryptoContext';
+
 
 const Alert = () => {
   const { alert, setAlert } = CryptoState();
 
-  const handleCloseAlert = (event, reason) => {
+  const handleCloseAlert = (e:SyntheticEvent<unknown,Event>,  reason:SnackbarCloseReason) => {
     if (reason === 'clickaway') {
       return;
     }
 
     setAlert({ open: false });
   };
+  const handleMuiCloseAlert = () => {
+
+   setAlert({ open: false });
+  };
+
 
   return (
     <Snackbar
@@ -21,7 +27,7 @@ const Alert = () => {
       onClose={handleCloseAlert}
     >
       <MuiAlert
-        onClose={handleCloseAlert}
+        onClose={handleMuiCloseAlert}
         elevation={10}
         variant="filled"
         severity={alert.type}
