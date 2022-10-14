@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { makeStyles, Typography, LinearProgress, Button } from '@material-ui/core';
@@ -8,8 +9,17 @@ import { SingleCoin } from '../config/api';
 import { CryptoState } from '../CryptoContext';
 import { numberWithCommas } from './Banner/Carousel';
 import CoinsInfo from '../components/CoinsInfo';
-
 import { db } from '../firebase';
+
+type table = {
+ coin: any,
+ image : {large: string}
+ name: string,
+ description: {en: string}
+ market_cap_rank: number,
+ market_data: {current_price:string,market_cap:string},
+ id: string,
+}
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -47,16 +57,16 @@ const useStyles = makeStyles((theme) => ({
 
 const CoinPage = () => {
   const { id } = useParams();
-  const [coin, setCoin] = useState({});
+  const [coin, setCoin] = useState<table>();
   const { currency, symbol, user, watchlist, setAlert } = CryptoState();
 
-  const {
-    image,
-    name,
-    description,
-    market_cap_rank: marketCapRank,
-    market_data: marketData,
-  } = coin;
+  // const {
+  //   image,
+  //   name,
+  //   description,
+  //   market_cap_rank: marketCapRank,
+  //   market_data: marketData,
+  // } = coin;
 
   const classes = useStyles();
 
@@ -80,7 +90,7 @@ const CoinPage = () => {
 
       setAlert({
         open: true,
-        message: `${coin.name} Added to the Watchlist !`,
+        message: `${coin!.name} Added to the Watchlist !`,
         type: 'success',
       });
     } catch (error) {
@@ -96,13 +106,13 @@ const CoinPage = () => {
     try {
       await setDoc(
         coinRef,
-        { coins: watchlist.filter((wish) => wish !== coin?.id) },
+        { coins: watchlist.filter((wish:string) => wish !== coin?.id) },
         { merge: true }
       );
 
       setAlert({
         open: true,
-        message: `${coin.name} Removed from the Watchlist !`,
+        message: `${coin!.name} Removed from the Watchlist !`,
         type: 'success',
       });
     } catch (error) {
@@ -118,18 +128,18 @@ const CoinPage = () => {
     <div className={classes.container}>
       <div className={classes.sidebar}>
         <img
-          src={image?.large}
-          alt={name}
+          src={coin.image?.large}
+          alt={coin.name}
           height="200"
           style={{ marginBottom: 20 }}
         />
         <Typography variant="h3" className={classes.heading}>
-          {name}
+          {coin.name}
         </Typography>
         <Typography variant="subtitle1" className={classes.description}>
-          {ReactHtmlParser(description?.en.split('. ')[0])}.
+          {ReactHtmlParser(coin.description?.en.split('. ')[0])}.
         </Typography>
-        <div className={classes.marketData}>
+        <div >
           <span style={{ display: 'flex' }}>
             <Typography variant="h5" className={classes.heading}>
               Rank:
@@ -141,7 +151,7 @@ const CoinPage = () => {
                 fontFamily: 'Montserrat',
               }}
             >
-              {numberWithCommas(marketCapRank)}
+              {numberWithCommas(coin.market_cap_rank)}
             </Typography>
           </span>
 
@@ -158,7 +168,7 @@ const CoinPage = () => {
             >
               {symbol}{' '}
               {numberWithCommas(
-                marketData?.current_price[currency.toLowerCase()]
+                coin.market_data?.current_price[currency.toLowerCase()]
               )}
             </Typography>
           </span>
@@ -175,7 +185,7 @@ const CoinPage = () => {
             >
               {symbol}{' '}
               {numberWithCommas(
-                marketData?.market_cap[currency.toLowerCase()]
+                coin.market_data?.market_cap[currency.toLowerCase()]
                   .toString()
                   .slice(0, -6)
               )}
@@ -197,7 +207,7 @@ const CoinPage = () => {
           )}
         </div>
       </div>
-      {coin.id && <CoinsInfo coin={coin} />}
+      {coin.id && <CoinsInfo coin={coin}  />}
     </div>
   );
 };

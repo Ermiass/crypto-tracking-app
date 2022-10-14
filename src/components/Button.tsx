@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { ReactNode, MouseEventHandler } from 'react';
 import { makeStyles } from '@material-ui/core';
 
+  interface Props {
+  children: ReactNode
+  onClick: MouseEventHandler
+  
+  // any props that come into the component
+}
 const useStyles = makeStyles({
   selectbutton: {
     border: '1px solid gold',
@@ -18,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Button = ({ children, selected, onClick }) => {
+const Button = ({ children, onClick}:Props) => {
   const classes = useStyles();
 
   return (

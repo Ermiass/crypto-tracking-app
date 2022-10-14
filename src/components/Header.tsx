@@ -18,7 +18,7 @@ import AuthModal from './Authentication/AuthModal';
 import UserSidebar from './Authentication/UserSidebar';
 import News from './News';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   title: {
     flex: 1,
     color: 'gold',
@@ -39,7 +39,7 @@ const darkTheme = createTheme({
 
 const Header = () => {
   const classes = useStyles();
-  const { currency, setCurrency, user } = CryptoState();
+  const { currency, setCurrency, user }: any= CryptoState();
   const navigate = useNavigate();
   console.log(currency);
   return (
@@ -55,7 +55,6 @@ const Header = () => {
               E-Crypto
             </Typography>
             <Typography
-              variant="h7"
               className={classes.title}
             >
               <News />

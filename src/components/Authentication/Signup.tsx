@@ -4,12 +4,16 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { CryptoState } from '../../CryptoContext';
 import { auth } from '../../firebase';
 
-const Signup = ({ handleClose }) => {
+type props = {
+  handleClose:()=> void  
+}
+
+const Signup = ({ handleClose }:props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const { setAlert } = CryptoState();
+  const { setAlert }= CryptoState();
 
   const handleSubmit = async () => {
     if (password !== confirmPassword) {
@@ -47,7 +51,6 @@ const Signup = ({ handleClose }) => {
 
   return (
     <Box
-      // p={4}
       style={{
         display: 'flex',
         flexDirection: 'column',

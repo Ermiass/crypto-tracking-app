@@ -7,7 +7,16 @@ import { Link } from 'react-router-dom';
 import { TrendingCoins } from '../../config/api';
 import { CryptoState } from '../../CryptoContext';
 
-const useStyles = makeStyles((theme) => ({
+type carousal = {
+ coin: string,
+ price_change_percentage_24h: number,
+ id:string,
+ symbol:string,
+ image: string
+ current_price: number, 
+ name:string,
+}
+const useStyles = makeStyles(() => ({
   carousel: {
     height: '50%',
     display: 'flex',
@@ -22,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
   },
 }));
-export const numberWithCommas = (x) => {
+export const numberWithCommas = (x:string| number) => {
   return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 const Carousel = () => {
@@ -37,7 +46,7 @@ const Carousel = () => {
   useEffect(() => {
     fetchTrendingCoins();
   }, [currency]);
-  const items = trending.map((coin) => {
+  const items = trending.map((coin:carousal) => {
     const profit = coin?.price_change_percentage_24h >= 0;
     return (
       <Link className={classes.carouselItem} to={`/coins/${coin.id}`}>
@@ -52,7 +61,7 @@ const Carousel = () => {
        &nbsp;
           <span
             style={{
-              color: profit > 0 ? 'rgb(14, 203, 129)' : 'red',
+              color: profit ? 'rgb(14, 203, 129)' : 'red',
               fontWeight: 500,
             }}
           >

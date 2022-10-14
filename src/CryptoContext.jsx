@@ -4,8 +4,24 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { CoinList } from './config/api';
 import { auth, db } from './firebase';
+// import {contexttype, CryptoType} from './utils/type'
 
-const Crypto = createContext();
+// export interface User {
+//   uid: string,
+// }
+
+const Crypto = createContext()
+// //   currency:'',
+//   setCurrency: Function,
+//   symbol:'',  coins:[],
+//   user: {username:'', uid: '', email: '' }, 
+//   setUser:Function,
+//   loading: true,
+//   getCoins:Function,
+//   alert:{open: true,  message: '', type: ''},
+//   setAlert: Function,
+//  watchlist:[],
+// });
 const CryptoContext = ({ children }) => {
   const [currency, setCurrency] = useState('USD');
   const [symbol, setSymbol] = useState('$');
@@ -17,7 +33,7 @@ const CryptoContext = ({ children }) => {
     type: 'success',
   });
   const [watchlist, setWatchlist] = useState([]);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState()
   const getCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
@@ -57,7 +73,7 @@ const CryptoContext = ({ children }) => {
   }, []);
 
   // eslint-disable-next-line max-len
-  const pro = useMemo(() => ({ currency, setCurrency, symbol, coins, loading, getCoins, alert, setAlert, user, watchlist }), [currency, user, symbol, coins, loading, getCoins, alert, setAlert, alert, setCurrency]);
+  const pro = useMemo(() => ({ currency, setCurrency, symbol, coins, loading, getCoins, alert, setAlert, user, watchlist,setUser }), [currency, setUser, user, symbol, coins, loading, getCoins, alert, setAlert, alert, setCurrency]);
   return (
     <Crypto.Provider value={pro}>
       {children}

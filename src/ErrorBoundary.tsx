@@ -1,19 +1,26 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, ErrorInfo, ReactNode } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-class ErrorBoundary extends Component {
-  constructor(props) {
+type ErrorBoundaryProps = {
+  children: ReactNode;
+};
+
+type ErrorBoundaryState = {
+  error: null | Error;
+};
+
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { error: null };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: Error) {
     return { error };
   }
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.log(error, errorInfo);
   }
 
@@ -36,8 +43,5 @@ class ErrorBoundary extends Component {
   }
 }
 
-ErrorBoundary.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default ErrorBoundary;

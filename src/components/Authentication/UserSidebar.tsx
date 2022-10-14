@@ -9,6 +9,13 @@ import { CryptoState } from '../../CryptoContext';
 import { auth, db } from '../../firebase';
 import { numberWithCommas } from '../../pages/Banner/Carousel';
 
+type coin = {
+  name: string,
+  coin: string,
+  id: number,
+  current_price: number
+
+}
 const useStyles = makeStyles({
   container: {
     width: 350,
@@ -70,11 +77,11 @@ export default function UserSidebar() {
   const [state, setState] = useState({
     right: false,
   });
-  const { user, setAlert, watchlist, coins, symbol } = CryptoState();
+  const { user, setAlert, watchlist, coins, symbol }= CryptoState();
 
   console.log(watchlist, coins);
 
-  const toggleDrawer = (anchor, open) => (event) => {
+  const toggleDrawer = (anchor:string, open:boolean) => (event: any) => {
     if (
       event.type === 'keydown' &&
       (event.key === 'Tab' || event.key === 'Shift')
@@ -93,15 +100,15 @@ export default function UserSidebar() {
       message: 'Logout Successfull !',
     });
 
-    toggleDrawer();
+    toggleDrawer('anchor',true );
   };
 
-  const removeFromWatchlist = async (coin) => {
+  const removeFromWatchlist = async (coin:coin) => {
     const coinRef = doc(db, 'watchlist', user.uid);
     try {
       await setDoc(
         coinRef,
-        { coins: watchlist.filter((wish) => wish !== coin?.id) },
+        { coins: watchlist.filter((wish:number) => wish !== coin?.id) },
         { merge: true }
       );
 
@@ -123,8 +130,9 @@ export default function UserSidebar() {
     <div>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
+          <div  onClick={toggleDrawer(anchor, true)} >
           <Avatar
-            onClick={toggleDrawer(anchor, true)}
+           
             style={{
               height: 38,
               width: 38,
@@ -135,9 +143,10 @@ export default function UserSidebar() {
             src={user.photoURL}
             alt={user.displayName || user.email}
           />
+          </div>
           <Drawer
-            anchor={anchor}
-            open={state[anchor]}
+            anchor='right'
+            open={state.right}
             onClose={toggleDrawer(anchor, false)}
           >
             <div className={classes.container}>
@@ -162,7 +171,7 @@ export default function UserSidebar() {
                   <span style={{ fontSize: 15, textShadow: '0 0 5px black' }}>
                     Watchlist
                   </span>
-                  {coins.map((coin) => {
+                  {coins.map((coin:coin) => {
                     if (watchlist.includes(coin.id)) {
                       return (
                         <div className={classes.coin}>

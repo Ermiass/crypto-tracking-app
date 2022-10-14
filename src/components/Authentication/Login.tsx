@@ -4,7 +4,11 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { CryptoState } from '../../CryptoContext';
 import { auth } from '../../firebase';
 
-const Login = ({ handleClose }) => {
+type props = {
+  handleClose:()=> void  
+}
+
+const Login = ({ handleClose }: props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -44,7 +48,6 @@ const Login = ({ handleClose }) => {
 
   return (
     <Box
-      // p={4}
       style={{
         display: 'flex',
         flexDirection: 'column',
