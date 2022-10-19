@@ -7,7 +7,7 @@ import CryptoContext from "../CryptoContext";
 
 
 
-test('should be able to type in the search feild', () => {
+test('should be able to type in the search field', () => {
     render(
         <CryptoContext>
             <BrowserRouter>
@@ -19,7 +19,7 @@ test('should be able to type in the search feild', () => {
     userEvent.type(searchElement, "Bitcoin");
     expect(searchElement).toBeInTheDocument();
 });
-test('includes an text fields with text "Search For a Crypto Currency.."', () => {
+test('should be able to type in text in the Search field', () => {
     render(
         <CryptoContext>
             <BrowserRouter>

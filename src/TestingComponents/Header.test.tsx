@@ -6,7 +6,7 @@ import Header from '../components/Header';
 
 
 
-test('should be able to select a currency fr the select menu', () => {
+test('should be able to select a currency from the select menu', () => {
     render(
         <CryptoContext>
             <BrowserRouter>

@@ -21,7 +21,7 @@ test('should render a button', () => {
     expect(buttonElement).toBeInTheDocument();
 });
 
-test('includes a Text fields with text "email/"', () => {
+test('includes a TextField with text "email/"', () => {
     render(
         <CryptoContext>
             <BrowserRouter>
@@ -36,7 +36,7 @@ test('includes a Text fields with text "email/"', () => {
     expect(inputElement).toBeInTheDocument();
 
 });
-test('includes a Text fields with text "password"', () => {
+test('includes a TextField with text "password"', () => {
     render(
         <CryptoContext>
             <BrowserRouter>

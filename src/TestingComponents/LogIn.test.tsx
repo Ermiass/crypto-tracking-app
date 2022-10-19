@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event';
 import CryptoContext from "../CryptoContext";
 import Login from '../components/Authentication/Login';
 
-test('includes an text fields with text "Enter-Email"', () => {
+test('includes a TextField with a text "Enter-Email"', () => {
     render(
         <CryptoContext>
             <BrowserRouter>
@@ -36,7 +36,7 @@ test('should render a button', () => {
     const Loginbutton = screen.getByRole('button', { name: /LOGIN/i });
     expect(Loginbutton).toBeInTheDocument();
 });
-test('should be able to type in password in the text feild', () => {
+test('should be able to type in text the TextField', () => {
     render(
         <CryptoContext>
             <BrowserRouter>
@@ -50,7 +50,7 @@ test('should be able to type in password in the text feild', () => {
     userEvent.type(PasswordElement, "New tittle");
     expect(PasswordElement).toBeInTheDocument();
 });
-test('should be able to type in email address in the text feild', () => {
+test('should be able to type in text in the TextField', () => {
     render(
         <CryptoContext>
             <BrowserRouter>
