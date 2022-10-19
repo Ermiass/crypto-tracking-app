@@ -36,10 +36,8 @@ const Banner = () => {
               color: 'darkgrey',
               textTransform: 'capitalize',
               fontFamily: 'Montserrat',
-              // marginBottom: 15,
             }}
           >
-            {/* E-Crypto */}
             Get all the Info regarding your favorite Crypto Currency
           </Typography>
 

@@ -60,6 +60,7 @@ const Signup = ({ handleClose }:props) => {
       }}
     >
       <TextField
+      inputProps={{'data-testid': 'email'}}
         variant="outlined"
         type="email"
         label="Enter Email"
@@ -68,6 +69,7 @@ const Signup = ({ handleClose }:props) => {
         fullWidth
       />
       <TextField
+       inputProps={{'data-testid': 'password'}}
         variant="outlined"
         label="Enter Password"
         type="password"
@@ -76,6 +78,8 @@ const Signup = ({ handleClose }:props) => {
         fullWidth
       />
       <TextField
+      // inputProps={{'data-testid': 'Confirm-Password'}}
+      // data-testid = 'Confirm-Password'
         variant="outlined"
         label="Confirm Password"
         type="password"
@@ -85,10 +89,12 @@ const Signup = ({ handleClose }:props) => {
       />
       <Button
         variant="contained"
+        type='submit'
         size="large"
         style={{ backgroundColor: '#EEBC1D',
           marginBottom: 20 }}
         onClick={handleSubmit}
+        disabled={!email || !password || !confirmPassword }
       >
         Sign Up
       </Button>
