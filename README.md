@@ -1,46 +1,155 @@
-# Getting Started with Create React App
+<!-- PROJECT Header -->
+<a id="top"></a>
+<br />
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h2 align="center">CRYPTO-TRACKING-APP
+</h3>
 
-## Available Scripts
+  <p align="center">
+    Get All The Latest Info Regarding Your Favorite Crypto Currency And Crypto News Update!
+    <br />
+    <!-- <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> -->
+</div>
 
-In the project directory, you can run:
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#wireframe">Wireframe</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-### `npm test`
+This app is build with the existing knowledge of the React basics, and give you further practice working with React context, Chart Js, Firebase, MUI, codebase linting, component testing, Git-Flow workflow, and TypeScript.
+ A user should, at the bare minimum, be able to view all the Top 100 list of Cryptocurrencys based on their market capital , Shows the trending coins over the last 24 hour,Search for a particular coin from the list and Shows a Historical chart of a specfic coin with a detail information on a daily ,monthly and year base and additionaly a user can learn and read on the latest update on the News section.
+For a specfic user with login  credential the user can add a coin to his the watch list and remove the coin from the watch list when ever he wantes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<p><a  align="right" href="#top">Back to top</a></p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A few of the frameworks/libraries that were used to build the project are:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* React
+* Context API
+* Chart Js
+* Typescript
+* MUI
+* Firebase/Google authentication
+* Axios
+* React Router
+* React Testing Library
+* EsLint AirBnb and Prettier
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<p><a  align="right" href="#top">Back to top</a></p>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Wireframe
+  ### Getting Started The App build out with simple Wireframes using Figma.
+<img width="328" alt="wirefram-backend-blog-app" src="./public/wireframe.jpeg">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+To install CRYPTO-TRACKING-APP, follow these steps:
+### Prerequisites
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* npm
+  
+ ` npm install npm@latest -g`
+  
+
+### Installation
+
+Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services.
+
+1. Clone the repo
+ 
+   `git clone https://github.com/Ermiass/crypto-tracking-app`
+
+2. Install NPM packages
+  
+   `npm install`
+   
+3. Get a free  API key from Firebase By Siging up and Enter your  API_KEY link in your `.env` file 
+
+   REACT_APP_FIREBASE_API_KEY = 'ENTER YOUR API_KEY';
+   REACT_APP_FIREBASE_AUTH_DOMAIN='ENTER YOUR API_KEY';
+   REACT_APP_FIREBASE_PROJECT_ID='ENTER YOUR API_KEY';
+   REACT_APP_FIREBASE_STORAGE_BUCKET='ENTER YOUR API_KEY';
+   REACT_APP_FIREBASE_MESSAGING_SENDER_IDmessagingSenderId='ENTER YOUR API_KEY';
+   REACT_APP_FIREBASE_APP_ID='ENTER YOUR API_KEY';
+   
+4. npm start to start the app.
+
+
+<p><a  align="right" href="#top">Back to top</a></p>
+
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Can be used to track the price of top cryptocurrencies, historical chart and detail information on coins.
+Additionaly you can  get the latest news on cryptocurrencies, cryptomarkets, NFTs and useful  teaching videos.
+
+- [x] Display List of TOP 100 Coins
+- [x] Display List of trending coins over the last 24 hour
+  [x] User Can Change the Currency Type Of Any Coin
+    - [x] USD
+    - [x] EUR
+- [x] Able To Search For  particular coin 
+- [x] Shows a detail Information on a Particular Coin
+- [x] Shows a Historical chart of a coin
+- [x] News Update on crpocurencies and NFT 
+- [x] IF User Logged In/Sign Up
+    - [x] Able to add coins to User watchlist 
+    - [x] Remove coins from User watchlist 
+
+
+<p><a  align="right" href="#top">Back to top</a></p>
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p><a  align="right" href="#top">Back to top</a></p>
+
+
+<!-- CONTACT -->
+## Contact
+
+Ermias Mahtemu - emahtemu@alphaworks.tech
+
+Project Link: [https://github.com/Ermiass/crypto-tracking-app](https://github.com/Ermiass/crypto-tracking-app)
+
+<p><a  align="right" href="#top">Back to top</a></p>

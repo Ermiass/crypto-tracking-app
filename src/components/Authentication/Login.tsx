@@ -57,6 +57,7 @@ const Login = ({ handleClose }: props) => {
       }}
     >
       <TextField
+        inputProps={{'data-testid': 'Enter-Email'}}
         variant="outlined"
         type="email"
         label="Enter Email"
@@ -65,6 +66,7 @@ const Login = ({ handleClose }: props) => {
         fullWidth
       />
       <TextField
+       inputProps={{'data-testid': 'Enter-Password'}}
         variant="outlined"
         label="Enter Password"
         type="password"
@@ -73,11 +75,14 @@ const Login = ({ handleClose }: props) => {
         fullWidth
       />
       <Button
+      data-testid='login' 
         variant="contained"
+        type='submit'
         size="large"
         onClick={handleSubmit}
         style={{ backgroundColor: '#EEBC1D',
           marginBottom: 20 }}
+          disabled={!email || !password }
       >
         Login
       </Button>

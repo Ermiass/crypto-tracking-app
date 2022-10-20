@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core';
   children: ReactNode
   onClick: MouseEventHandler
   
-  // any props that come into the component
 }
 const useStyles = makeStyles({
   selectbutton: {

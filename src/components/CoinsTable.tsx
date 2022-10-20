@@ -75,6 +75,7 @@ const CoinsTable = () => {
           Cryptocurrency Prices by Market Cap
         </Typography>
         <TextField
+         data-testid='search' 
           label="Search For a Crypto Currency.."
           variant="outlined"
           style={{ marginBottom: 20, width: '100%' }}
