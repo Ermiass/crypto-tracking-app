@@ -50,15 +50,15 @@ For a specfic user with login  credential the user can add a coin to his the wat
 A few of the frameworks/libraries that were used to build the project are:
 
 * React
-* Context ApI
+* Context API
 * Chart Js
 * Typescript
 * MUI
 * Firebase/Google authentication
 * Axios
 * React Router
-* React testing Libraries 
-* EsLint AirBnb and Prettierr
+* React Testing Library
+* EsLint AirBnb and Prettier
 
 
 <p><a  align="right" href="#top">Back to top</a></p>
@@ -75,8 +75,8 @@ To install CRYPTO-TRACKING-APP, follow these steps:
 
 
 * npm
-  sh
-  npm install npm@latest -g
+  
+ ` npm install npm@latest -g`
   
 
 ### Installation
@@ -84,15 +84,15 @@ To install CRYPTO-TRACKING-APP, follow these steps:
 Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services.
 
 1. Clone the repo
-   sh
-   git clone https://github.com/Ermiass/crypto-tracking-app
+ 
+   `git clone https://github.com/Ermiass/crypto-tracking-app`
 
 2. Install NPM packages
-   sh
-   npm install
+  
+   `npm install`
    
 3. Get a free  API key from Firebase By Siging up and Enter your  API_KEY link in your `.env` file 
-   js
+
    REACT_APP_FIREBASE_API_KEY = 'ENTER YOUR API_KEY';
    REACT_APP_FIREBASE_AUTH_DOMAIN='ENTER YOUR API_KEY';
    REACT_APP_FIREBASE_PROJECT_ID='ENTER YOUR API_KEY';
@@ -100,10 +100,8 @@ Below is an example of how you can instruct your audience on installing and sett
    REACT_APP_FIREBASE_MESSAGING_SENDER_IDmessagingSenderId='ENTER YOUR API_KEY';
    REACT_APP_FIREBASE_APP_ID='ENTER YOUR API_KEY';
    
-4. npm start 
-  sh
-   npm start 
-   
+4. npm start to start the app.
+
 
 <p><a  align="right" href="#top">Back to top</a></p>
 
@@ -112,7 +110,8 @@ Below is an example of how you can instruct your audience on installing and sett
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Can be used to track the price of  top cryptocurencys, historical chart  and detail information on coin,get the latest news on cryptocurencys,cryptomarketes,NFTs and usfull teaching vidos.
+Can be used to track the price of top cryptocurrencies, historical chart and detail information on coins.
+Additionaly you can  get the latest news on cryptocurrencies, cryptomarkets, NFTs and useful  teaching videos.
 
 - [x] Display List of TOP 100 Coins
 - [x] Display List of trending coins over the last 24 hour
