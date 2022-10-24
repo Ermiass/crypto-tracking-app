@@ -12,7 +12,7 @@ import CoinsInfo from '../components/CoinsInfo';
 import { db } from '../firebase';
 
 type table = {
- coin: any,
+ coin: string,
  image : {large: string}
  name: string,
  description: {en: string}

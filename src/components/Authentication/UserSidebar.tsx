@@ -188,7 +188,7 @@ export default function UserSidebar() {
                         </div>
                       );
                     }
-                    // console.log(user.photoURL);
+                    console.log(user.photoURL);
                     return <></>;
                   })}
                 </div>

@@ -33,7 +33,6 @@ const useStyles = makeStyles({
   pagination: {
     '& .MuiPaginationItem-root': {
       color: 'gold',
-      // marginBottom: 15,
     },
   },
 });
@@ -75,6 +74,7 @@ const CoinsTable = () => {
           Cryptocurrency Prices by Market Cap
         </Typography>
         <TextField
+         data-testid='search' 
           label="Search For a Crypto Currency.."
           variant="outlined"
           style={{ marginBottom: 20, width: '100%' }}

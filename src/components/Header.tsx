@@ -39,7 +39,7 @@ const darkTheme = createTheme({
 
 const Header = () => {
   const classes = useStyles();
-  const { currency, setCurrency, user }: any= CryptoState();
+  const { currency, setCurrency, user } = CryptoState();
   const navigate = useNavigate();
   console.log(currency);
   return (
@@ -67,8 +67,8 @@ const Header = () => {
                 height: 40,
                 marginLeft: 15,
               }}
-              id="demo-simple-select"
               value={currency}
+              inputProps={{ 'data-testid': "currency" }}
               onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value="USD">USD</MenuItem>
