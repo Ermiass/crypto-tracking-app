@@ -3,8 +3,8 @@
 <br />
 <div align="center">
 
-  <h2 align="center">CRYPTO-TRACKING-APP
-</h3>
+  <h1 align="center">CRYPTO-TRACKING-APP </h1>
+
 
   <p align="center">
     Get All The Latest Info Regarding Your Favorite Crypto Currency And Crypto News Update!
@@ -76,7 +76,9 @@ To install CRYPTO-TRACKING-APP, follow these steps:
 
 * npm
   
- ` npm install npm@latest -g`
+  ```sh
+  `npm install npm@latest -g`
+  ```
   
 
 ### Installation
@@ -84,22 +86,22 @@ To install CRYPTO-TRACKING-APP, follow these steps:
 Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services.
 
 1. Clone the repo
- 
-   `git clone https://github.com/Ermiass/crypto-tracking-app`
-
+ ```sh
+  ` git clone https://github.com/Ermiass/crypto-tracking-app`
+   ```
 2. Install NPM packages
-  
-   `npm install`
-   
+   ```sh
+  ` npm install`
+   ```
 3. Get a free  API key from Firebase By Siging up and Enter your  API_KEY link in your `.env` file 
-
-   REACT_APP_FIREBASE_API_KEY = 'ENTER YOUR API_KEY';
-   REACT_APP_FIREBASE_AUTH_DOMAIN='ENTER YOUR API_KEY';
-   REACT_APP_FIREBASE_PROJECT_ID='ENTER YOUR API_KEY';
-   REACT_APP_FIREBASE_STORAGE_BUCKET='ENTER YOUR API_KEY';
-   REACT_APP_FIREBASE_MESSAGING_SENDER_IDmessagingSenderId='ENTER YOUR API_KEY';
-   REACT_APP_FIREBASE_APP_ID='ENTER YOUR API_KEY';
-   
+  ```js
+  ` REACT_APP_FIREBASE_API_KEY = 'ENTER YOUR API KEY';
+   REACT_APP_FIREBASE_AUTH_DOMAIN = 'ENTER YOUR FIREBASE_AUTH_DOMAIN';
+   REACT_APP_FIREBASE_PROJECT_ID = 'ENTER YOUR FIREBASE_PROJECT_ID';
+   REACT_APP_FIREBASE_STORAGE_BUCKET = 'ENTER YOUR FIREBASE_STORAGE_BUCKET';
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID = 'ENTER YOUR FIREBASE_MESSAGING_SENDER_ID';
+   REACT_APP_FIREBASE_APP_ID = 'ENTER YOUR FIREBASE_APP_ID';`
+   ```
 4. npm start to start the app.
 
 
@@ -115,7 +117,7 @@ Additionaly you can  get the latest news on cryptocurrencies, cryptomarkets, NFT
 
 - [x] Display List of TOP 100 Coins
 - [x] Display List of trending coins over the last 24 hour
-  [x] User Can Change the Currency Type Of Any Coin
+- [x] User Can Change the Currency Type Of Any Coin
     - [x] USD
     - [x] EUR
 - [x] Able To Search For  particular coin 

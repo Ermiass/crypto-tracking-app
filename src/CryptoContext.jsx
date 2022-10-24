@@ -4,24 +4,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { CoinList } from './config/api';
 import { auth, db } from './firebase';
-// import {contexttype, CryptoType} from './utils/type'
-
-// export interface User {
-//   uid: string,
-// }
 
 const Crypto = createContext()
-// //   currency:'',
-//   setCurrency: Function,
-//   symbol:'',  coins:[],
-//   user: {username:'', uid: '', email: '' }, 
-//   setUser:Function,
-//   loading: true,
-//   getCoins:Function,
-//   alert:{open: true,  message: '', type: ''},
-//   setAlert: Function,
-//  watchlist:[],
-// });
 const CryptoContext = ({ children }) => {
   const [currency, setCurrency] = useState('USD');
   const [symbol, setSymbol] = useState('$');
