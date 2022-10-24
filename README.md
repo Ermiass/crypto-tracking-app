@@ -132,7 +132,6 @@ Additionaly you can  get the latest news on cryptocurrencies, cryptomarkets, NFT
 <p><a  align="right" href="#top">Back to top</a></p>
 
 
-
 <!-- CONTRIBUTING -->
 ## Contributing
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
