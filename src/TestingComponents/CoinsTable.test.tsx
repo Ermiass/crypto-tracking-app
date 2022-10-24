@@ -5,8 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 import CoinsTable from "../components/CoinsTable";
 import CryptoContext from "../CryptoContext";
 
-
-
 test('should be able to type in the search field', () => {
     render(
         <CryptoContext>

@@ -78,8 +78,6 @@ const Signup = ({ handleClose }:props) => {
         fullWidth
       />
       <TextField
-      // inputProps={{'data-testid': 'Confirm-Password'}}
-      // data-testid = 'Confirm-Password'
         variant="outlined"
         label="Confirm Password"
         type="password"

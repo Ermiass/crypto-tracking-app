@@ -32,7 +32,7 @@ test('should render a button', () => {
             </BrowserRouter>
         </CryptoContext>
     );
-
+    
     const Loginbutton = screen.getByRole('button', { name: /LOGIN/i });
     expect(Loginbutton).toBeInTheDocument();
 });
