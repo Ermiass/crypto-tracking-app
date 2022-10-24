@@ -87,20 +87,20 @@ Below is an example of how you can instruct your audience on installing and sett
 
 1. Clone the repo
  ```sh
-  ` git clone https://github.com/Ermiass/crypto-tracking-app`
+   git clone https://github.com/Ermiass/crypto-tracking-app
    ```
 2. Install NPM packages
    ```sh
-  ` npm install`
+   npm install
    ```
 3. Get a free  API key from Firebase By Siging up and Enter your  API_KEY link in your `.env` file 
   ```js
-  ` REACT_APP_FIREBASE_API_KEY = 'ENTER YOUR API KEY';
+   REACT_APP_FIREBASE_API_KEY = 'ENTER YOUR API KEY';
    REACT_APP_FIREBASE_AUTH_DOMAIN = 'ENTER YOUR FIREBASE_AUTH_DOMAIN';
    REACT_APP_FIREBASE_PROJECT_ID = 'ENTER YOUR FIREBASE_PROJECT_ID';
    REACT_APP_FIREBASE_STORAGE_BUCKET = 'ENTER YOUR FIREBASE_STORAGE_BUCKET';
    REACT_APP_FIREBASE_MESSAGING_SENDER_ID = 'ENTER YOUR FIREBASE_MESSAGING_SENDER_ID';
-   REACT_APP_FIREBASE_APP_ID = 'ENTER YOUR FIREBASE_APP_ID';`
+   REACT_APP_FIREBASE_APP_ID = 'ENTER YOUR FIREBASE_APP_ID';
    ```
 4. npm start to start the app.
 
