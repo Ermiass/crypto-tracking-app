@@ -46,7 +46,7 @@ const CoinsTable = () => {
   useEffect(() => {
     getCoins();
   }, [currency]);
-  console.log(coins);
+ 
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -55,7 +55,7 @@ const CoinsTable = () => {
       type: 'dark',
     },
   });
-  console.log(search);
+  
   const handleSearch = () => {
     return coins.filter(
       (coin:props) =>

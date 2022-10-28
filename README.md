@@ -7,7 +7,7 @@
 
 
   <p align="center">
-    Get All The Latest Info Regarding Your Favorite Crypto Currency And Crypto News Update!
+   <h6>Get All The Latest Info Regarding Your Favorite Crypto Currency And Crypto News Update!</h6>
     <br />
     <!-- <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> -->
 </div>
@@ -77,7 +77,7 @@ To install CRYPTO-TRACKING-APP, follow these steps:
 * npm
   
   ```sh
-  `npm install npm@latest -g`
+  npm install npm@latest -g
   ```
   
 
@@ -115,7 +115,7 @@ Below is an example of how you can instruct your audience on installing and sett
 Can be used to track the price of top cryptocurrencies, historical chart and detail information on coins.
 Additionaly you can  get the latest news on cryptocurrencies, cryptomarkets, NFTs and useful  teaching videos.
 
-- [x] Display List of TOP 100 Coins
+- [x] Display  List of TOP 100 cryptocurrencies By Market Capital
 - [x] Display List of trending coins over the last 24 hour
 - [x] User Can Change the Currency Type Of Any Coin
     - [x] USD
@@ -136,7 +136,7 @@ Additionaly you can  get the latest news on cryptocurrencies, cryptomarkets, NFT
 <!-- CONTRIBUTING -->
 ## Contributing
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -152,6 +152,6 @@ Don't forget to give the project a star! Thanks again!
 
 Ermias Mahtemu - emahtemu@alphaworks.tech
 
-Project Link: [https://github.com/Ermiass/crypto-tracking-app](https://github.com/Ermiass/crypto-tracking-app)
+Project Link: [https://e-crypto-tracking.netlify.app/](https://github.com/Ermiass/crypto-tracking-app)
 
 <p><a  align="right" href="#top">Back to top</a></p>
