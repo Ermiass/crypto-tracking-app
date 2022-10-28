@@ -52,11 +52,9 @@ const CryptoContext = ({ children }) => {
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(user);
       else setUser(null);
-      console.log(user);
     });
   }, []);
 
-  // eslint-disable-next-line max-len
   const pro = useMemo(() => ({ currency, setCurrency, symbol, coins, loading, getCoins, alert, setAlert, user, watchlist,setUser }), [currency, setUser, user, symbol, coins, loading, getCoins, alert, setAlert, alert, setCurrency]);
   return (
     <Crypto.Provider value={pro}>

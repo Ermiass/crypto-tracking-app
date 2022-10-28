@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -81,10 +82,10 @@ export default function UserSidebar() {
 
   console.log(watchlist, coins);
 
-  const toggleDrawer = (anchor:string, open:boolean) => (event: any) => {
+  const toggleDrawer = (anchor:string, open:boolean) => (e: any) => {
     if (
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
+      e.type === 'keydown' &&
+      (e.key === 'Tab' || e.key === 'Shift')
     ) {
       return;
     }

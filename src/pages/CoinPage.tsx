@@ -60,21 +60,13 @@ const CoinPage = () => {
   const [coin, setCoin] = useState<table>();
   const { currency, symbol, user, watchlist, setAlert } = CryptoState();
 
-  // const {
-  //   image,
-  //   name,
-  //   description,
-  //   market_cap_rank: marketCapRank,
-  //   market_data: marketData,
-  // } = coin;
-
   const classes = useStyles();
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
     setCoin(data);
   };
-  console.log(coin);
+  
   useEffect(() => {
     fetchCoin();
   }, []);

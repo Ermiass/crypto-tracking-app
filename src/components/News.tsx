@@ -3,7 +3,7 @@ import React from 'react';
 const News = () => {
   return (
     
-      <span> <a href="https://cryptonews.com/" target="_blank" rel="noreferrer">Crypto-News</a></span>
+      <span> <a href="https://cryptonews.com/" target="_blank" rel="noreferrer">News</a></span>
   
   );
 };
