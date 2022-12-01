@@ -19,9 +19,9 @@ import {
 } from '@material-ui/core';
 import { HistoricalChart } from '../config/api';
 import { chartDays } from '../config/data';
-import { CryptoState } from '../CryptoContext';
+import { CryptoState } from '../../app/CryptoContext';
 import Button from './Button';
-import { Rep } from '../utils/type'
+import { Rep } from '../../service/utils/type'
 
 ChartJS.register(
   CategoryScale,

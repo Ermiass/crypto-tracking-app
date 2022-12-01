@@ -13,18 +13,26 @@ import {
   ThemeProvider
 } from '@material-ui/core/styles';
 import { useNavigate } from 'react-router-dom';
-import { CryptoState } from '../CryptoContext';
+import { CryptoState } from '../../app/CryptoContext';
 import AuthModal from './Authentication/AuthModal';
 import UserSidebar from './Authentication/UserSidebar';
 import News from './News';
 
 const useStyles = makeStyles(() => ({
   title: {
+  flex: 1,
+    color: 'gold',
+    fontFamily: 'Montserrat',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+  },
+  news: {
     flex: 1,
     color: 'gold',
     fontFamily: 'Montserrat',
     fontWeight: 'bold',
     cursor: 'pointer',
+    marginLeft: 25,
   },
 }));
 
@@ -52,10 +60,10 @@ const Header = () => {
               variant="h6"
               className={classes.title}
             >
-              E-Crypto
+              ECrypto
             </Typography>
             <Typography
-              className={classes.title}
+              className={classes.news}
             >
               <News />
             </Typography>

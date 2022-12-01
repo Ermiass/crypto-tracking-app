@@ -5,11 +5,14 @@ import { makeStyles, Typography, LinearProgress, Button } from '@material-ui/cor
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import { doc, setDoc } from 'firebase/firestore';
-import { SingleCoin } from '../config/api';
-import { CryptoState } from '../CryptoContext';
+// import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../service/utils/hooks';
+import { SingleCoin } from '../../common/config/api';
+import { CryptoState } from '../../app/CryptoContext';
 import { numberWithCommas } from './Banner/Carousel';
-import CoinsInfo from '../components/CoinsInfo';
+import CoinsInfo from '../../common/components/CoinsInfo';
 import { db } from '../firebase';
+import { setAlert } from '../../app/store/alertSlice';
 
 type table = {
  coin: string,
@@ -18,7 +21,7 @@ type table = {
  description: {en: string}
  market_cap_rank: number,
  market_data: {current_price:string,market_cap:string},
- id: string,
+ id: string;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +61,9 @@ const useStyles = makeStyles((theme) => ({
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState<table>();
-  const { currency, symbol, user, watchlist, setAlert } = CryptoState();
+  const { currency, symbol, user, watchlist } = CryptoState();
+  const dispatch = useAppDispatch();
+  
 
   const classes = useStyles();
 
@@ -66,7 +71,10 @@ const CoinPage = () => {
     const { data } = await axios.get(SingleCoin(id));
     setCoin(data);
   };
-  
+  console.log(coin
+
+
+    );
   useEffect(() => {
     fetchCoin();
   }, []);
@@ -80,17 +88,17 @@ const CoinPage = () => {
         { merge: true }
       );
 
-      setAlert({
+      dispatch(setAlert({
         open: true,
         message: `${coin!.name} Added to the Watchlist !`,
         type: 'success',
-      });
+      }));
     } catch (error) {
-      setAlert({
+      dispatch(setAlert({
         open: true,
         message: error.message,
         type: 'error',
-      });
+      }));
     }
   };
   const removeFromWatchlist = async () => {
@@ -102,17 +110,17 @@ const CoinPage = () => {
         { merge: true }
       );
 
-      setAlert({
+      dispatch(setAlert({
         open: true,
         message: `${coin!.name} Removed from the Watchlist !`,
         type: 'success',
-      });
+      }));
     } catch (error) {
-      setAlert({
+      dispatch(setAlert({
         open: true,
         message: error.message,
         type: 'error',
-      });
+      }));
     }
   };
   if (!coin) return <LinearProgress style={{ backgroundColor: 'gold' }} />;
