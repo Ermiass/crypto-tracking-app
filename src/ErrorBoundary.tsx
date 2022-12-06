@@ -1,6 +1,6 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './common/components/Header';
+import Footer from './common/components/Footer';
 
 type ErrorBoundaryProps = {
   children: ReactNode;

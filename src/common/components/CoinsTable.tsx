@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Container, makeStyles, createTheme, TextField, Paper, Table, TableBody, TableHead, TableRow, TableCell, TableContainer, LinearProgress, ThemeProvider, Typography } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 import Pagination from '@material-ui/lab/Pagination';
-import { CryptoState } from '../CryptoContext';
-import { numberWithCommas } from '../pages/Banner/Carousel';
+import { CryptoState } from '../../app/CryptoContext';
+import { numberWithCommas } from '../../features/pages/Banner/Carousel';
+import HomeNews from './HomeNews';
 
 type props = {
   coin: string
@@ -187,6 +188,7 @@ const CoinsTable = () => {
           }}
         />
       </Container>
+      <HomeNews simplified={undefined} />
     </ThemeProvider>
   );
 };

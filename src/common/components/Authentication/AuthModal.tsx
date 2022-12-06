@@ -7,10 +7,12 @@ import Fade from '@material-ui/core/Fade';
 import GoogleButton from 'react-google-button';
 import { Button, Tab, Tabs, AppBar, Box } from '@material-ui/core';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { setAlert } from '../../../app/store/alertSlice';
+import { useAppDispatch } from '../../../service/utils/hooks';
 import Signup from './Signup';
 import Login from './Login';
-import { CryptoState } from '../../CryptoContext';
-import { auth } from '../../firebase';
+// import { CryptoState } from '../../../app/CryptoContext';
+import { auth } from '../../../features/firebase';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -38,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
 export default function AuthModal() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-
-  const { setAlert} = CryptoState();
+  const dispatch =  useAppDispatch();
+  // const { setAlert} = CryptoState();
 
   const handleOpen = () => {
     setOpen(true);
@@ -60,20 +62,20 @@ export default function AuthModal() {
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((res) => {
-        setAlert({
+       dispatch(setAlert({
           open: true,
           message: `Sign Up Successful. Welcome ${res.user.email}`,
           type: 'success',
-        });
+        }));
 
         handleClose();
       })
       .catch((error) => {
-        setAlert({
+        dispatch(setAlert({
           open: true,
           message: error.message,
           type: 'error',
-        });
+        }));
       });
   };
 

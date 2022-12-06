@@ -3,8 +3,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
-import Signup from "../components/Authentication/Signup";
-import CryptoContext from "../CryptoContext";
+import Signup from "../common/components/Authentication/Signup";
+import CryptoContext from "../app/CryptoContext";
 
 
 test('should render a button', () => {
