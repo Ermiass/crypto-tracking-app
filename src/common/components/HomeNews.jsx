@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import moment from 'moment';
 import {  Avatar, Box, CardActionArea,LinearProgress } from '@material-ui/core';
-import { useGetCryptoNewsQuery } from '../config/CryptoNewsApi';
+import { useGetCryptoNewsQuery } from '../../service/utils/CryptoNewsApi';
 // import Loader from './Loader';
 
 

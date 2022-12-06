@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { configureStore } from '@reduxjs/toolkit';
-import { cryptoNewsApi } from '../../common/config/CryptoNewsApi';
+import { cryptoNewsApi } from '../../service/utils/CryptoNewsApi';
 import searchReducer from './currencySlice';
 import alertReducer from './alertSlice';
 
