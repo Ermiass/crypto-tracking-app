@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
+import Navbar from '../common/Navbar';
 import Homepage from '../features/pages/Homepage';
 import CoinPage from '../features/pages/CoinPage';
 import Header from '../common/components/Header';
@@ -23,6 +24,7 @@ const App = () => {
     <div className={classes.App}>
       <GlobalStyle />
       <Header />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/coins/:id" element={<CoinPage />} />

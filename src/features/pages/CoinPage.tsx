@@ -6,7 +6,7 @@ import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import { doc, setDoc } from 'firebase/firestore';
 // import { useDispatch } from 'react-redux';
-import sgMail from '@sendgrid/mail';
+// import sgMail from '@sendgrid/mail';
 import { useAppDispatch } from '../../service/utils/hooks';
 import { SingleCoin } from '../../common/config/api';
 import { CryptoState } from '../../app/CryptoContext';
@@ -77,28 +77,41 @@ const CoinPage = () => {
   useEffect(() => {
     fetchCoin();
   }, []);
-  const checkIsTrending = async () => {
-    const {
-      data:{coins:trendingCoins},
-    } = await axios.get('https:/api.coingecko.com/api/v3/search/trending')
-    const isTrending = !trendingCoins.find((trendingCoin: { item: { id: string; }; }) => trendingCoin.item.id === coin?.id)
-      console.log(isTrending);
-     if (isTrending){
-     sgMail.setApiKey(process.env.SENDGRID_API_KEY||'');
-     const msg = {
-       to: user.email,
-       from: 'donotreplyecrypto@gmail.com',
-       subject: 'Trending coin alert',
-       html: `<strong> ${coin?.id} is trending</strong>`,
-     };
-     sgMail.send(msg);
-        }
+//   const checkIsTrending = async () => {
+//     const {
+//       data:{coins:trendingCoins},
+//     } = await axios.get('https:/api.coingecko.com/api/v3/search/trending')
+//     const isTrending = !trendingCoins.find((trendingCoin: { item: { id: string; }; }) => trendingCoin.item.id === coin?.id)
+// console.log(isTrending)
+    //  if (isTrending){
+    // //  sgMail.setApiKey(process.env.SENDGRID_API_KEY||'');
+    //  const msg = {
+    //    to: user.email,
+    //    from: 'donotreplyecrypto@gmail.com',
+    //    subject: 'Trending coin alert',
+    //    html: `<strong> ${coin?.id} is trending</strong>`,
+    //  };
+    //  sgMail.send(msg);
+    //     }
+    // if (isTrending){
+    //   const Mailer = () => {
+    //     function sendEmail(){
+    //       emailjs.send(
+    //         'service_owf043r',
+    //         'template_ybnm1ms',
+    //         'YtXU2mWa73abebdDe'
+    //       )
+    //     }
+    //   }
+    //   sendEmail()
+    // }
           
-    }
+    // }
 
   const inWatchlist = watchlist.includes(coin?.id);
   const addToWatchlist = async () => {
-    checkIsTrending()
+    // console.log(checkIsTrending());
+    
     const coinRef = doc(db, 'watchlist', user.uid);
     try {
       await setDoc(

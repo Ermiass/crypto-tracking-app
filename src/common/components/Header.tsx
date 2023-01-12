@@ -21,10 +21,17 @@ import News from './News';
 const useStyles = makeStyles(() => ({
   title: {
   flex: 1,
-    color: 'gold',
+  color:'gold',
     fontFamily: 'Montserrat',
     fontWeight: 'bold',
     cursor: 'pointer',
+    // fontWeight: 'bold',
+  letterSpacing: -1.6,
+  textShadow:' 0 0 25px var(--clr-logo)',
+  // color:'gold',
+  // userSelect: 'none',
+  // textShadow:' 0 0 25px var(--clr-logo), -1px 1px 10px rgb(229, 229, 229), 1px 1px 10px rgb(170, 168, 168)'
+    
   },
   news: {
     flex: 1,

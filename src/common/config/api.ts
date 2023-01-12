@@ -9,3 +9,4 @@ export const SingleCoin = (id: string | undefined) =>
 // eslint-disable-next-line default-param-last
 export const HistoricalChart = (id: string | undefined, days = 365, currency: string | undefined) =>
   `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency}&days=${days}`;
+  export const GlobalData = () => `https://api.coingecko.com/api/v3/global`

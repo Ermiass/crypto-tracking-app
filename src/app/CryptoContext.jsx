@@ -2,12 +2,10 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from '
 import axios from 'axios';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
-// import { useDispatch } from 'react-redux';
 import { useAppDispatch} from '../service/utils/hooks';
 import { CoinList } from '../common/config/api';
 import { auth, db } from '../features/firebase';
 import { setLoading } from './store/currencySlice';
-// import { setWatchlist } from './store/watchlistSlice';
 
 const Crypto = createContext()
 const CryptoContext = ({ children }) => {
@@ -29,7 +27,7 @@ const CryptoContext = ({ children }) => {
       const coinRef = doc(db, 'watchlist', user?.uid);
       const unsubscribe = onSnapshot(coinRef, (coin) => {
         if (coin.exists()) {
-          console.log(coin.data().coins);
+          // console.log(coin.data().coins);
           setWatchlist(coin.data().coins);
         } else {
           console.log('No Items in Watchlist');
@@ -55,7 +53,7 @@ const CryptoContext = ({ children }) => {
 
     });
   }, []);
-  console.log(user);
+  // console.log(user);
 
   const pro = useMemo(() => ({ currency, setCurrency, symbol, coins,  getCoins, user, watchlist,  setUser }), [currency, setUser, user, symbol, coins, getCoins, setCurrency]);
   return (

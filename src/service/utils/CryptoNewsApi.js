@@ -11,10 +11,15 @@ const baseUrl = 'https://bing-news-search1.p.rapidapi.com'
 const createRequest = (url) => ({ url, headers: cryptoNewsHeaders });
 
 export const cryptoNewsApi = createApi({
+  // The cache reducer expects to be added at `state.api` (already default - this is optional)
   reducerPath: 'cryptoNewsApi',
+  // All of our requests will have URLs starting
   baseQuery: fetchBaseQuery({ baseUrl }),
+  // The "endpoints" represent operations and requests for this server
   endpoints: (builder) => ({
+    // The `get` endpoint is a "query" operation that returns data
     getCryptoNews: builder.query({
+      // The URL for the request is
       query: ({ newsCategory, count }) => createRequest(`/news/search?q=${newsCategory}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`),
     }),
   }),
