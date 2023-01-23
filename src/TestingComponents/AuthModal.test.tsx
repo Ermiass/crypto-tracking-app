@@ -1,7 +1,7 @@
 import React from 'react';import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
-import AuthModal from "../components/Authentication/AuthModal";
-import CryptoContext from "../CryptoContext";
+import AuthModal from "../common/components/Authentication/AuthModal";
+import CryptoContext from "../app/CryptoContext";
 
 
 test('should render a button', () => {

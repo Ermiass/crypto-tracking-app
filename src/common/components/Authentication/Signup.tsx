@@ -1,48 +1,54 @@
 import React, { useState } from 'react';
 import { Box, Button, TextField } from '@material-ui/core';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { CryptoState } from '../../CryptoContext';
-import { auth } from '../../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+// import { CryptoState } from '../../../app/CryptoContext';
+import { useAppDispatch } from '../../../service/utils/hooks';
+import { setAlert } from '../../../app/store/alertSlice';
+import { auth } from '../../../features/firebase';
 
 type props = {
   handleClose:()=> void  
 }
 
-const Login = ({ handleClose }: props) => {
+const Signup = ({ handleClose }:props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const { setAlert } = CryptoState();
+  // const { setAlert }= CryptoState();
+  const dispatch = useAppDispatch();
 
   const handleSubmit = async () => {
-    if (!email || !password) {
-      setAlert({
+    if (password !== confirmPassword) {
+      dispatch(setAlert({
         open: true,
-        message: 'Please fill all the Fields',
+        message: 'Passwords do not match',
         type: 'error',
-      });
+      }));
       return;
     }
 
     try {
-      const result = await signInWithEmailAndPassword(
+      const result = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      setAlert({
+
+      console.log(result);
+      dispatch(setAlert({
         open: true,
-        message: `Log In Successful. Welcome ${result.user.email}`,
+        message: `Sign Up Successful. Welcome ${result.user.email}`,
         type: 'success',
-      });
+      }));
 
       handleClose();
     } catch (error) {
-      setAlert({
+      dispatch(setAlert({
         open: true,
         message: error.message,
         type: 'error',
-      });
+      }));
     }
   };
 
@@ -57,7 +63,7 @@ const Login = ({ handleClose }: props) => {
       }}
     >
       <TextField
-        inputProps={{'data-testid': 'Enter-Email'}}
+      inputProps={{'data-testid': 'email'}}
         variant="outlined"
         type="email"
         label="Enter Email"
@@ -66,7 +72,7 @@ const Login = ({ handleClose }: props) => {
         fullWidth
       />
       <TextField
-       inputProps={{'data-testid': 'Enter-Password'}}
+       inputProps={{'data-testid': 'password'}}
         variant="outlined"
         label="Enter Password"
         type="password"
@@ -74,20 +80,27 @@ const Login = ({ handleClose }: props) => {
         onChange={(e) => setPassword(e.target.value)}
         fullWidth
       />
+      <TextField
+        variant="outlined"
+        label="Confirm Password"
+        type="password"
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        fullWidth
+      />
       <Button
-      data-testid='login' 
         variant="contained"
         type='submit'
         size="large"
-        onClick={handleSubmit}
         style={{ backgroundColor: '#EEBC1D',
           marginBottom: 20 }}
-          disabled={!email || !password }
+        onClick={handleSubmit}
+        disabled={!email || !password || !confirmPassword }
       >
-        Login
+        Sign Up
       </Button>
     </Box>
   );
 };
 
-export default Login;
+export default Signup;

@@ -6,14 +6,16 @@ import { Avatar, Button } from '@material-ui/core';
 import { signOut } from 'firebase/auth';
 import { AiFillDelete } from 'react-icons/ai';
 import { doc, setDoc } from 'firebase/firestore';
-import { CryptoState } from '../../CryptoContext';
-import { auth, db } from '../../firebase';
-import { numberWithCommas } from '../../pages/Banner/Carousel';
+import { useAppDispatch } from '../../../service/utils/hooks';
+import { setAlert } from '../../../app/store/alertSlice';
+import { CryptoState } from '../../../app/CryptoContext';
+import { auth, db } from '../../../features/firebase';
+import { numberWithCommas } from '../../../features/pages/Banner/Carousel';
 
 type coin = {
   name: string,
   coin: string,
-  id: number,
+  id: never,
   current_price: number
 
 }
@@ -78,9 +80,10 @@ export default function UserSidebar() {
   const [state, setState] = useState({
     right: false,
   });
-  const { user, setAlert, watchlist, coins, symbol }= CryptoState();
-
-  console.log(watchlist, coins);
+  const { user, coins, symbol, watchlist }= CryptoState();
+  const dispatch = useAppDispatch();
+  // const {watchlist} = useAppSelector((state) => state.watchlist);
+  // console.log(watchlist, coins);
 
   const toggleDrawer = (anchor:string, open:boolean) => (e: any) => {
     if (
@@ -95,11 +98,11 @@ export default function UserSidebar() {
 
   const logOut = () => {
     signOut(auth);
-    setAlert({
+   dispatch(setAlert({
       open: true,
       type: 'success',
       message: 'Logout Successfull !',
-    });
+    }));
 
     toggleDrawer('anchor',true );
   };
@@ -113,17 +116,17 @@ export default function UserSidebar() {
         { merge: true }
       );
 
-      setAlert({
+      dispatch(setAlert({
         open: true,
         message: `${coin.name} Removed from the Watchlist !`,
         type: 'success',
-      });
+      }));
     } catch (error) {
-      setAlert({
+      dispatch(setAlert({
         open: true,
         message: error.message,
         type: 'error',
-      });
+      }));
     }
   };
 
@@ -189,7 +192,7 @@ export default function UserSidebar() {
                         </div>
                       );
                     }
-                    console.log(user.photoURL);
+                    // console.log(user.photoURL);
                     return <></>;
                   })}
                 </div>

@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AliceCarousel from 'react-alice-carousel';
 import { Link } from 'react-router-dom';
-import { TrendingCoins } from '../../config/api';
-import { CryptoState } from '../../CryptoContext';
+import { TrendingCoins } from '../../../common/config/api';
+import { CryptoState } from '../../../app/CryptoContext';
 
 type carousal = {
  coin: string,
