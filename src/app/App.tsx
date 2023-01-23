@@ -1,13 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
-import Homepage from './pages/Homepage';
-import CoinPage from './pages/CoinPage';
-import Header from './components/Header';
-import NotFound from './pages/NotFound';
-import GlobalStyle from './utils/globalStyle';
-import Footer from './components/Footer';
-import Alert from './components/Alert';
+import Navbar from '../common/Navbar';
+import Homepage from '../features/pages/Homepage';
+import CoinPage from '../features/pages/CoinPage';
+import Header from '../common/components/Header';
+import NotFound from '../features/pages/NotFound';
+import GlobalStyle from '../common/globalStyle';
+import Footer from '../common/components/Footer';
+import Alert from '../common/components/Alert';
 
 const useStyles = makeStyles(() => ({
   App: {
@@ -23,6 +24,7 @@ const App = () => {
     <div className={classes.App}>
       <GlobalStyle />
       <Header />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/coins/:id" element={<CoinPage />} />

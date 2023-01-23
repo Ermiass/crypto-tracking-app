@@ -2,34 +2,32 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from '
 import axios from 'axios';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
-import { CoinList } from './config/api';
-import { auth, db } from './firebase';
+import { useAppDispatch} from '../service/utils/hooks';
+import { CoinList } from '../common/config/api';
+import { auth, db } from '../features/firebase';
+import { setLoading } from './store/currencySlice';
 
 const Crypto = createContext()
 const CryptoContext = ({ children }) => {
   const [currency, setCurrency] = useState('USD');
   const [symbol, setSymbol] = useState('$');
   const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [alert, setAlert] = useState({
-    open: false,
-    message: '',
-    type: 'success',
-  });
   const [watchlist, setWatchlist] = useState([]);
   const [user, setUser] = useState()
+  const dispatch = useAppDispatch();
   const getCoins = async () => {
-    setLoading(true);
+    dispatch(setLoading(true));
     const { data } = await axios.get(CoinList(currency));
     setCoins(data);
-    setLoading(false);
+    dispatch(setLoading(false));
   };
+  
   useEffect(() => {
     if (user) {
       const coinRef = doc(db, 'watchlist', user?.uid);
       const unsubscribe = onSnapshot(coinRef, (coin) => {
         if (coin.exists()) {
-          console.log(coin.data().coins);
+          // console.log(coin.data().coins);
           setWatchlist(coin.data().coins);
         } else {
           console.log('No Items in Watchlist');
@@ -52,10 +50,12 @@ const CryptoContext = ({ children }) => {
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(user);
       else setUser(null);
+
     });
   }, []);
+  // console.log(user);
 
-  const pro = useMemo(() => ({ currency, setCurrency, symbol, coins, loading, getCoins, alert, setAlert, user, watchlist,setUser }), [currency, setUser, user, symbol, coins, loading, getCoins, alert, setAlert, alert, setCurrency]);
+  const pro = useMemo(() => ({ currency, setCurrency, symbol, coins,  getCoins, user, watchlist,  setUser }), [currency, setUser, user, symbol, coins, getCoins, setCurrency]);
   return (
     <Crypto.Provider value={pro}>
       {children}

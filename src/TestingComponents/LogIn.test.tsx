@@ -4,8 +4,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
 import userEvent from '@testing-library/user-event';
-import CryptoContext from "../CryptoContext";
-import Login from '../components/Authentication/Login';
+import CryptoContext from "../app/CryptoContext";
+import Login from '../common/components/Authentication/Login';
 
 test('includes a TextField with a text "Enter-Email"', () => {
     render(
